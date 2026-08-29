@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTBR TRAVOUKS - خدمات البناء والديكور</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0d0d0d;
+            --bg-card: #141414;
+            --gold-primary: #d4af37;
+            --gold-secondary: #f3e5ab;
+            --text-light: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Top Header */
+        .top-bar {
+            background-color: #050505;
+            border-bottom: 1px solid var(--border-gold);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .top-bar a {
+            color: var(--gold-primary);
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .btn-quote {
+            background: linear-gradient(45deg, var(--gold-primary), #aa820a);
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-quote:hover {
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(20, 20, 20, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 60px 5%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            border: 1px solid var(--border-gold);
+            padding: 40px 20px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .sub-services {
+            color: var(--gold-secondary);
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero-slogan {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-gold {
+            background: var(--gold-primary);
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Quick Info Sidebar Card */
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-icon {
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-text h4 {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+        }
+
+        .info-text p, .info-text a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services-grid {
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .service-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-box i {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--gold-secondary);
+        }
+
+        .service-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Title */
+        .section-header {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            padding: 0 5% 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background-color: #222;
+            border-radius: 8px;
+            border: 1px solid var(--border-gold);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: scale 0.3s;
+        }
+
+        .gallery-item:hover img {
+            scale: 1.05;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--bg-card);
+            padding: 40px 5%;
+            margin: 20px 5%;
+            border-radius: 8px;
+            border: 1px solid var(--border-gold);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .feature-item i {
+            color: var(--gold-primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050505;
+            border-top: 1px solid var(--border-gold);
+            padding: 40px 5% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            font-weight: bold;
+        }
+
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--gold-primary);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Header -->
+    <div class="top-bar">
+        <div>
+            <i class="fa-brands fa-whatsapp" style="color:#25d366;"></i>
+            <a href="https://wa.me/212690090698" target="_blank">0690090698</a>
+        </div>
+        <a href="https://wa.me/212690090698" class="btn-quote"><i class="fa-solid fa-file-invoice"></i> اطلب عرض سعر</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#" class="active">الرئيسية</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#services">خدماتنا</a></li>
+            <li><a href="#gallery">أعمالنا</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="logo-title">MR MTBR TRAVOUKS</h1>
+            <div class="sub-services">ALOMNIOM • SBARA • LBINA • RKHAM • RIR DSSSLK</div>
+            <h2 class="hero-slogan">الجودة عنواننا والإتقان وعدنا</h2>
+            <p class="hero-desc">نقدم لك حلولاً متكاملة في الألمنيوم، الزجاج، البناء، الرخام، والديكور الداخلي والخارجي بخبرة عالية ومواد ممتازة.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/212690090698" class="btn-gold"><i class="fa-brands fa-whatsapp"></i> تواصل معنا</a>
+                <a href="#about" class="btn-outline">اعرف المزيد <i class="fa-solid fa-arrow-left"></i></a>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-user-gear"></i></div>
+                <div class="info-text">
+                    <h4>إسلام المالك</h4>
+                    <p>المالك والمسؤول</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="info-text">
+                    <h4>اتصل بنا</h4>
+                    <a href="tel:0690090698">0690090698</a>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="info-text">
+                    <h4>تواصل واتساب</h4>
+                    <a href="https://wa.me/212690090698" target="_blank">0690090698</a>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="info-text">
+                    <h4>الموقع</h4>
+                    <p>الدار البيضاء - الحمد</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services">
+        <div class="section-header">
+            <h2>خدماتنا</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-box">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h3>و رير الدسلك</h3>
+                <p>ديكورات داخلية حديثة وعصرية</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-cubes"></i>
+                <h3>الرخام</h3>
+                <p>درج - أرضيات - واجهات - مطابخ - حمامات</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-trowel-bricks"></i>
+                <h3>البناء والزليج</h3>
+                <p>جميع أنواع البناء والزليج الداخلي والخارجي</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-paint-roller"></i>
+                <h3>صباغة</h3>
+                <p>دوش - كبينات - مرايا - زجاج مقسى</p>
+            </div>
+            <div class="service-box">
+                <i class="fa-solid fa-door-open"></i>
+                <h3>الألمنيوم</h3>
+                <p>نوافذ - أبواب - واجهات زجاجية - قواطع</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="section-header">
+            <h2>نماذج من أعمالنا</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" alt="عمل 1"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=500&q=80" alt="عمل 2"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=500&q=80" alt="عمل 3"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=500&q=80" alt="عمل 4"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div>
+            <h2 style="color: var(--gold-primary); margin-bottom: 15px;">من نحن</h2>
+            <p style="color: var(--text-muted);">شركة MTBR TRAVOUKS شركة متخصصة في مجال الألمنيوم، الزجاج، البناء، الرخام والديكور الداخلي. نلتزم بتقديم أفضل الخدمات بأعلى جودة وأفضل الأسعار، مع الحرص على إرضاء عملائنا في كل مشروع.</p>
+        </div>
+        <div>
+            <div class="features-grid">
+                <div class="feature-item"><i class="fa-solid fa-circle-check"></i> <span>ضمان على العمل</span></div>
+                <div class="feature-item"><i class="fa-solid fa-clock"></i> <span>التزام بالمواعيد</span></div>
+                <div class="feature-item"><i class="fa-solid fa-user-ninja"></i> <span>إتقان واحترافية</span></div>
+                <div class="feature-item"><i class="fa-solid fa-award"></i> <span>جودة عالية وتشطيب دقيق</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">MTBR TRAVOUKS</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">نجعل الأفضل دائماً... هدفنا هو تحقيق رضاكم وثقتكم من خلال جودة أعمالنا.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--gold-primary); margin-bottom: 10px;">تواصل سريع</h4>
+                <p>الهاتف / واتساب: <a href="tel:0690090698" style="color:#fff; text-decoration:none;">0690090698</a></p>
+            </div>
+            <div>
+                <h4 style="color: var(--gold-primary); margin-bottom: 10px;">ساعات العمل</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">السبت - الخميس<br>08:00 - 18:00</p>
+            </div>
+            <div>
+                <h4 style="color: var(--gold-primary); margin-bottom: 10px;">تابعنا</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            جميع الحقوق محفوظة © MTBR TRAVOUKS 2026
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/212690090698" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
